@@ -51,7 +51,10 @@ function Sort() {
                             border: 1px solid black;
                             padding:10px;
                         }
-                        tr:nth-child(odd){
+                        table thead tr th:nth-child(odd){
+                            background-color:grey;
+                        }
+                        table tbody tr td:nth-child(even){
                             background-color:grey;
                         }
                         .one {
@@ -70,19 +73,23 @@ function Sort() {
                 }
             </style>
             <table>
-                <tr>
-                    <th>TITLE</th>
-                    <th><button onClick={() => { sortByNumberAscending(1) }} className={isClicked === 1 ? 'one' : ''}>Number By Ascending</button><button onClick={() => { sortByNumberDescending(2) }} className={isClicked === 2 ? 'two' : ''}>Number By Descending</button></th>
-                    <th><button onClick={() => { sortByDateAscending(3) }} className={isClicked === 3 ? 'three' : ''}>Date By Ascending</button><button onClick={() => { sortByDateDescending(4) }} className={isClicked === 4 ? 'four' : ''}>Date By Descending</button></th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>TITLE</th>
+                        <th><button onClick={() => { sortByNumberAscending(1) }} className={isClicked === 1 ? 'one' : ''}>Number By Ascending</button><button onClick={() => { sortByNumberDescending(2) }} className={isClicked === 2 ? 'two' : ''}>Number By Descending</button></th>
+                        <th><button onClick={() => { sortByDateAscending(3) }} className={isClicked === 3 ? 'three' : ''}>Date By Ascending</button><button onClick={() => { sortByDateDescending(4) }} className={isClicked === 4 ? 'four' : ''}>Date By Descending</button></th>
+                    </tr>
+                </thead>
                 {
                     data.map((value, index) => {
                         return (
-                            <tr key={index}>
-                                <td><center>{value.title}</center></td>
-                                <td><center>{value.number}</center></td>
-                                <td><center>{value.date}</center></td>
-                            </tr>
+                            <tbody key={index}>
+                                <tr>
+                                    <td><center>{value.title}</center></td>
+                                    <td><center>{value.number}</center></td>
+                                    <td><center>{value.date}</center></td>
+                                </tr>
+                            </tbody>
                         )
                     })
                 }

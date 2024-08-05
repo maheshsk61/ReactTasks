@@ -4,7 +4,6 @@ export default function BgColorChange() {
     const [bg, setBg] = useState(false);
     return (
         <div>
-            <h1>Background color change</h1>
             {
                 array.map((arr, index) => {
                     return (

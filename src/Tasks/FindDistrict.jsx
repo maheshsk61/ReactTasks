@@ -16,7 +16,18 @@ export default function FindDistrict() {
     const filteredDistricts = search ? districts.filter((f) => f.toUpperCase().includes(search.toUpperCase())) : districts
     return (
         <div>
-            <h1>Tamilnadu Districts</h1>
+            <style>
+                {
+                    `
+                        ol {
+                            display:flex;
+                            flex-direction:column;
+                            justify-content:center;
+                            align-items:center;
+                        }
+                    `
+                }
+            </style>
             <input type="search" placeholder="Search Districts" value={search} onChange={(e) => { setSearch(e.target.value) }} />
             <ol>
                 {
