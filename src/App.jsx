@@ -1,19 +1,38 @@
 import React from "react";
-import FindDistrict from "./Tasks/FindDistrict";
-import BgColorChange from "./Tasks/BgColorChange";
-import Sort from "./Tasks/Sort";
-import Slideshow from "./Tasks/Slideshow";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./Home";
+import Error from "./Error";
+import FindDistrict from './Tasks/FindDistrict'
+import BgColorChange from './Tasks/BgColorChange'
+import Sort from './Tasks/Sort'
+import Slideshow from './Tasks/Slideshow'
+const objects = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+    errorElement: <Error/>
+  },
+  {
+    path: '/find_districts',
+    element: <FindDistrict />
+  },
+  {
+    path: '/background_color_change',
+    element: <BgColorChange />
+  },
+  {
+    path: '/sorting',
+    element: <Sort />
+  },
+  {
+    path: '/slideshow',
+    element: <Slideshow />
+  },
+])
 export default function App() {
   return (
     <center>
-      <h1>Task 1 : Find District</h1>
-      <FindDistrict />
-      <h1>Task 2 : Background Color Change</h1>
-      <BgColorChange />
-      <h1>Task 3 : Sorting</h1>
-      <Sort />
-      <h1>Task 4 : Slideshow</h1>
-      <Slideshow />
+      <RouterProvider router={objects} />
     </center>
   )
 }

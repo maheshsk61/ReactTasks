@@ -28,7 +28,7 @@ export default function FindDistrict() {
                     `
                 }
             </style>
-            <input type="search" placeholder="Search Districts" value={search} onChange={(e) => { setSearch(e.target.value) }} />
+            <input type="search" placeholder="Search Districts" value={search} onChange={(e) => { setSearch(e.target.value) }} style={{padding:'10px'}}/>
             <ol>
                 {
                     filteredDistricts.length ? filteredDistricts.map((district, index) => {
